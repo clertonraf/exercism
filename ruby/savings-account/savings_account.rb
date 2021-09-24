@@ -15,12 +15,11 @@ module SavingsAccount
   end
 
   def self.years_before_desired_balance(current_balance, desired_balance)
-    accumulated_balance = self.annual_balance_update(current_balance)
-    year = 1
-    while accumulated_balance < desired_balance
-      year += 1
-      accumulated_balance = self.annual_balance_update(accumulated_balance)
+    years = 0
+    until current_balance >= desired_balance
+      current_balance = self.annual_balance_update(current_balance)
+      years += 1
     end
-    return year
+    return years
   end
 end
