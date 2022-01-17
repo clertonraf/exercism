@@ -9,6 +9,8 @@ class Sieve
     calculate_primes([*2..number])
   end
 
+  private
+
   def calculate_primes(primes_list)
     return if primes_list.empty?
 
